@@ -78,6 +78,12 @@ export default class TileLayout implements WindowsLayout {
       masterPart.primary.inner.gap =
       masterPart.secondary.gap =
         this.config.tileLayoutGap;
+
+    this.masterRatio = clip(
+      slide(this.masterRatio, +0.1),
+      TileLayout.MIN_MASTER_RATIO,
+      TileLayout.MAX_MASTER_RATIO
+    );
   }
 
   public adjust(
